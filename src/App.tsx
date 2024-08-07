@@ -8,7 +8,7 @@ import {createNativeStackNavigator} from "@react-navigation/native-stack"
 import Home from './screens/Home'
 import Nav from './screens/Nav'
 
-export type RootStackPeramList = {
+export type RootStackPramList = {
   Home : undefined;
   Nav : {product: Product}
 }
@@ -17,16 +17,14 @@ export type RootStackPeramList = {
 const statusBarHeight = Platform.OS === 'android' ? StatusBar.currentHeight : 0;  //Platform specific
 const { width, height } = Dimensions.get('window')
 
-const Screen = createNativeStackNavigator<RootStackPeramList>()
+const Screen = createNativeStackNavigator<RootStackPramList>()
 
 export default function App() {
   return (
     <>
     
-    <StatusBar backgroundColor={'transparent'} barStyle={'light-content'} translucent={true}/>
+    <StatusBar backgroundColor={'transparent'} barStyle={'dark-content'} translucent={true}/>
     <View style={styles.background}>
-      <Text style={styles.headerText}>PAGES</Text>
-    <View style={styles.card}></View>
     <NavigationContainer>
       <Screen.Navigator initialRouteName='Home'>
         <Screen.Screen name='Home' component={Home} options={{title: 'Home'}}/>
